@@ -32,30 +32,27 @@ def plot_q_table(q_table):
     ax.set_title('Policy Map with Directions')
     ax.set_xlabel('State X Coordinate')
     ax.set_ylabel('State Y Coordinate')
-    plt.gca().invert_yaxis()  # Invert y-axis to match the array indexing
     plt.show()
 
 
-def evaluate(q_table, env, episodes=10):
-    total_rewards = 0
-    max_steps_per_episode = 200  # Safeguard against infinite loops
+def pick_action(state, q_table, action_size, area_size, random_pick_chance=0.1):
+    y, x = state
+    potential_actions = list(range(action_size))
 
-    for episode in range(episodes):
-        state, _ = env.reset()
-        done = False
-        steps = 0
+    # Remove out-of-bound actions
+    if y == 0:  # Can't move up if at the top edge
+        potential_actions.remove(0)
+    if y == area_size[0] - 1:  # Can't move down if at the bottom edge
+        potential_actions.remove(1)
+    if x == 0:  # Can't move left if at the left edge
+        potential_actions.remove(2)
+    if x == area_size[1] - 1:  # Can't move right if at the right edge
+        potential_actions.remove(3)
 
-        while not done and steps < max_steps_per_episode:
-            action = np.argmax(q_table[state])  # Choose best action based on learned Q-table
-            state, reward, done, _, _ = env.step(action)
-            total_rewards += reward
-            steps += 1
+    best_action = max(potential_actions, key=lambda a: q_table[state][a])
 
-        if steps >= max_steps_per_episode:
-            print(f"Episode {episode + 1} reached max steps with no termination.")
-        else:
-            print(f'Episode {episode + 1}: reward = {reward}')
-
-    avg_reward = total_rewards / episodes
-    print(f'Average Reward: {avg_reward}')
-    return avg_reward
+    # Introduce randomness to avoid deterministic loops
+    if np.random.rand() < random_pick_chance:
+        return np.random.choice(potential_actions)
+    else:
+        return best_action
