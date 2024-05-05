@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 
 
 def plot_data_over_episodes(data, title, y_label, window_size=100):
-    """ Plots smoothed data over episodes with a configurable moving average window size. """
     smoothed_data = np.convolve(data, np.ones(window_size) / window_size, mode='valid')
     plt.figure(figsize=(12, 6))
     plt.plot(smoothed_data)

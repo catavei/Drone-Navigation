@@ -1,12 +1,11 @@
 import numpy as np
 from drone_navigation_env import DroneNavigationEnv
 from config import *
-from evaluate import evaluate
 from utils import plot_data_over_episodes, pick_action, plot_q_table
+from evaluate import evaluate
 
 
-def train():
-    env = DroneNavigationEnv(AREA_SIZE, MAX_STEPS)
+def train(env):
     q_table = np.zeros(AREA_SIZE + (ACTION_SIZE,))
     epsilon = EPSILON
 
@@ -48,10 +47,11 @@ def train():
     plot_data_over_episodes(rewards_per_episode, 'Smoothed Rewards Over Episodes', 'Average Reward')
     plot_data_over_episodes(steps_per_episode, 'Smoothed Steps Per Episode', 'Average Steps per Episode')
     plot_q_table(q_table)
-
-    evaluate(env, mode='render')
+    return env
 
 
 if __name__ == "__main__":
     np.random.seed(42)
-    train()
+    drone_env = DroneNavigationEnv(AREA_SIZE, MAX_STEPS)
+    train(drone_env)
+    evaluate(drone_env, mode='render')
