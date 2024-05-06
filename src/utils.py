@@ -1,3 +1,7 @@
+"""
+Utility functions and classes for the Drone Navigation project.
+Includes helpers for data processing and visualisation tasks that support the main application logic.
+"""
 import numpy as np
 import matplotlib.pyplot as plt
 

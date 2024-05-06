@@ -1,3 +1,7 @@
+"""
+Defines the Drone Navigation environment based on Gymnasium API.
+Handles the dynamics and rules of the drone's movement and interactions within the environment.
+"""
 import numpy as np
 import gymnasium as gym
 import pygame

@@ -1,3 +1,8 @@
+"""
+Provides evaluation functionality for the trained drone navigation model.
+This module assesses the performance of the drone in `eval` mode
+and the renders 10 episodes for visual assessment in `render` mode.
+"""
 import numpy as np
 
 from src.config import ACTION_SIZE, AREA_SIZE, RANDOM_PICK_CHANCE

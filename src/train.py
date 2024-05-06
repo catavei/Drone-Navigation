@@ -1,3 +1,7 @@
+"""
+Contains the training logic for the Drone Navigation project,
+utilizing reinforcement learning techniques to improve the drone's navigation capabilities.
+"""
 import numpy as np
 
 from src.config import *

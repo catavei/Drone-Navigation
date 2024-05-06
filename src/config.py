@@ -1,3 +1,7 @@
+"""
+Configuration module for the Drone Navigation project.
+Defines global constants and parameters used across various modules.
+"""
 AREA_SIZE = (30, 30)
 MAX_STEPS = 200
 
