@@ -55,7 +55,6 @@ def plot_q_table(q_table: np.ndarray) -> None:
     plt.show()
 
 
-
 def pick_action(state: tuple, q_table: np.ndarray, action_size: int, area_size: tuple, random_pick_chance: float = 0.1) -> int:
     """
      Description:
