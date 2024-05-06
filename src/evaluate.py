@@ -1,7 +1,7 @@
 import numpy as np
 
-from config import ACTION_SIZE, AREA_SIZE, RANDOM_PICK_CHANCE
-from utils import pick_action
+from src.config import ACTION_SIZE, AREA_SIZE, RANDOM_PICK_CHANCE
+from src.utils import pick_action
 
 
 def evaluate(env, mode="render"):
@@ -12,7 +12,7 @@ def evaluate(env, mode="render"):
     else:
         return "Invalid mode"
 
-    q_table = np.load('../data/q_table.npy')
+    q_table = np.load('models/q_table.npy')
     total_rewards = 0
     max_steps_per_episode = 100
     successful_landings = 0

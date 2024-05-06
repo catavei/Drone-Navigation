@@ -1,9 +1,9 @@
 import argparse
 import numpy as np
-from config import AREA_SIZE, MAX_STEPS
-from drone_navigation_env import DroneNavigationEnv
-from evaluate import evaluate
-from train import train
+from src.config import AREA_SIZE, MAX_STEPS
+from src.drone_navigation_env import DroneNavigationEnv
+from src.evaluate import evaluate
+from src.train import train
 
 
 def main(mode):

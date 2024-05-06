@@ -5,13 +5,13 @@ import matplotlib.pyplot as plt
 def plot_data_over_episodes(data: np.ndarray, title: str, y_label: str, window_size: int = 500) -> None:
     """
         Description:
-            Plots smoothed data (rewards or steps) over episodes.
+            Plots smoothed models (rewards or steps) over episodes.
 
         Args:
-            data (np.ndarray): The data array to plot, typically rewards or steps per episode.
+            data (np.ndarray): The models array to plot, typically rewards or steps per episode.
             title (str): The title of the plot.
             y_label (str): The label for the y-axis.
-            window_size (int): The size of the window to use for smoothing the data with a moving average.
+            window_size (int): The size of the window to use for smoothing the models with a moving average.
     """
 
     smoothed_data = np.convolve(data, np.ones(window_size) / window_size, mode='valid')
@@ -21,7 +21,7 @@ def plot_data_over_episodes(data: np.ndarray, title: str, y_label: str, window_s
     plt.xlabel('Episode')
     plt.ylabel(y_label)
     plt.grid(True)
-    plt.savefig('../plots/' + title + '.png')
+    plt.savefig('plots/' + title + '.png')
     plt.show()
 
 
@@ -51,7 +51,7 @@ def plot_q_table(q_table: np.ndarray) -> None:
     ax.set_title('Policy Map with Directions')
     ax.set_xlabel('State X Coordinate')
     ax.set_ylabel('State Y Coordinate')
-    plt.savefig('../plots/' + 'Q-table.png')
+    plt.savefig('plots/' + 'Q-table.png')
     plt.show()
 
 

@@ -39,12 +39,13 @@ You can run the program in one of three modes: `train`, `eval`, or `render`. Eac
 - **Evaluate**: This mode evaluates the performance of the trained model.
 - **Render**: This mode visually renders the drone's navigation.
 
-To run the program, use the following command structure in your terminal from the `src ` directory:
+To run the program, use the following command structure in your terminal from the `src` directory:
 
-```bash
-python main.py --mode [mode]
-Replace [mode] with either train, eval, or render depending on your needs:
 ```
+python main.py --mode [mode]
+```
+Replace [mode] with either train, eval, or render depending on your needs:
+
 #### Examples:
 ##### To train the drone:
 ```bash

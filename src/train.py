@@ -1,6 +1,7 @@
 import numpy as np
-from config import *
-from utils import plot_data_over_episodes, pick_action, plot_q_table
+
+from src.config import *
+from src.utils import plot_data_over_episodes, pick_action, plot_q_table
 
 
 def train(env):
@@ -40,7 +41,7 @@ def train(env):
         if episode % 200 == 0:
             print(f'Episode: {episode}, Epsilon: {epsilon:.2f}, Reward: {total_reward}, Steps: {steps}')
 
-    np.save('../data/q_table.npy', q_table)
+    np.save('models/q_table.npy', q_table)
 
     plot_data_over_episodes(rewards_per_episode, 'Rewards-Over-Episodes', 'Average Reward')
     plot_data_over_episodes(steps_per_episode, 'Steps-Per-Episode', 'Average Steps per Episode')
