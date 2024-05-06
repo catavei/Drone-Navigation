@@ -1,1 +1,4 @@
-Requirements and dependencies. 
+gymnasium==0.29.1
+matplotlib==3.8.3
+numpy==1.24.4
+pygame==2.5.2
