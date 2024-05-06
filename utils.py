@@ -21,6 +21,7 @@ def plot_data_over_episodes(data: np.ndarray, title: str, y_label: str, window_s
     plt.xlabel('Episode')
     plt.ylabel(y_label)
     plt.grid(True)
+    plt.savefig(title + '.png')
     plt.show()
 
 
@@ -50,7 +51,9 @@ def plot_q_table(q_table: np.ndarray) -> None:
     ax.set_title('Policy Map with Directions')
     ax.set_xlabel('State X Coordinate')
     ax.set_ylabel('State Y Coordinate')
+    plt.savefig('Q-table.png')
     plt.show()
+
 
 
 def pick_action(state: tuple, q_table: np.ndarray, action_size: int, area_size: tuple, random_pick_chance: float = 0.1) -> int:
