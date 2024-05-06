@@ -55,17 +55,17 @@ def plot_q_table(q_table: np.ndarray) -> None:
 
 def pick_action(state: tuple, q_table: np.ndarray, action_size: int, area_size: tuple, random_pick_chance: float = 0.1) -> int:
     """
+     Description:
+        This function picks an action (up, down, left, right) for a given state from Q table.
+        It introduces a chance of choosing another action with a `random_pick_chance` probability to avoid
+        the case where two neighbouring states "point" to each other, introducing an infinite loop.
+
      Args:
         state (tuple): Current state of the agent, expressed as (y, x) coordinates.
         q_table (numpy.ndarray): The Q-table containing accumulated Q-values for state-action pairs.
         action_size (int): Total number of possible actions the agent can take.
         area_size (tuple): Dimensions of the environment (height, width).
         random_pick_chance (float): Probability of choosing a random action to facilitate exploration.
-
-    Description:
-        This function picks an action (up, down, left, right) for a given state from Q table.
-        It introduces a chance of choosing another action with a `random_pick_chance` probability to avoid
-        the case where two neighbouring states "point" to each other, introducing an infinite loop.
 
     Returns:
         int: The chosen action, which is either the best action according to the Q-table or a random valid action.
