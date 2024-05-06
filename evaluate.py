@@ -8,7 +8,7 @@ def evaluate(env, mode="render"):
     if mode == "render":
         episodes = 10
     elif mode == "eval":
-        episodes = 100
+        episodes = 1000
     else:
         return "Invalid mode"
 
@@ -17,8 +17,10 @@ def evaluate(env, mode="render"):
     max_steps_per_episode = 100
     successful_landings = 0
     total_steps = 0
-
-    print("\n=== Evaluation ===\n")
+    if mode == "render":
+        print("\n=== Evaluation ===\n")
+    else:
+        print("\n=== Rendering ===\n")
     for episode in range(episodes):
         state, _ = env.reset()
         done = False
@@ -42,6 +44,7 @@ def evaluate(env, mode="render"):
 
     average_steps = total_steps / episodes
     landing_rate = successful_landings / episodes
-    print(f'\nSuccessful landings: {landing_rate * 100:.2f}%')
-    print(f'Average steps per episode: {average_steps:.0f}')
+    if mode == "eval":
+        print(f'\nSuccessful landings: {landing_rate * 100:.2f}%')
+        print(f'Average steps per episode: {average_steps:.0f}')
     return landing_rate

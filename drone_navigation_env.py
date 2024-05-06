@@ -77,7 +77,7 @@ class DroneNavigationEnv(gym.Env):
             pygame.draw.rect(self.screen, (0, 255, 0), drone_rect)
 
             pygame.display.flip()  # Update the display
-            self.clock.tick(60)
+            self.clock.tick(30)
 
     def close(self):
         pygame.quit()
