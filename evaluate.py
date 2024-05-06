@@ -18,9 +18,10 @@ def evaluate(env, mode="render"):
     successful_landings = 0
     total_steps = 0
     if mode == "render":
-        print("\n=== Evaluation ===\n")
-    else:
         print("\n=== Rendering ===\n")
+    else:
+        print("\n=== Evaluation ===\n")
+
     for episode in range(episodes):
         state, _ = env.reset()
         done = False
