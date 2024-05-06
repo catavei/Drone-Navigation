@@ -40,7 +40,7 @@ def train(env):
         if episode % 200 == 0:
             print(f'Episode: {episode}, Epsilon: {epsilon:.2f}, Reward: {total_reward}, Steps: {steps}')
 
-    np.save('q_table.npy', q_table)
+    np.save('../data/q_table.npy', q_table)
 
     plot_data_over_episodes(rewards_per_episode, 'Rewards-Over-Episodes', 'Average Reward')
     plot_data_over_episodes(steps_per_episode, 'Steps-Per-Episode', 'Average Steps per Episode')

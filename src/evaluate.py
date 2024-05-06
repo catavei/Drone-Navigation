@@ -12,7 +12,7 @@ def evaluate(env, mode="render"):
     else:
         return "Invalid mode"
 
-    q_table = np.load('q_table.npy')
+    q_table = np.load('../data/q_table.npy')
     total_rewards = 0
     max_steps_per_episode = 100
     successful_landings = 0

@@ -21,7 +21,7 @@ def plot_data_over_episodes(data: np.ndarray, title: str, y_label: str, window_s
     plt.xlabel('Episode')
     plt.ylabel(y_label)
     plt.grid(True)
-    plt.savefig(title + '.png')
+    plt.savefig('../plots/' + title + '.png')
     plt.show()
 
 
@@ -51,7 +51,7 @@ def plot_q_table(q_table: np.ndarray) -> None:
     ax.set_title('Policy Map with Directions')
     ax.set_xlabel('State X Coordinate')
     ax.set_ylabel('State Y Coordinate')
-    plt.savefig('Q-table.png')
+    plt.savefig('../plots/' + 'Q-table.png')
     plt.show()
 
 
