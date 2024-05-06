@@ -37,7 +37,7 @@ def train(env):
         rewards_per_episode[episode] = total_reward
         steps_per_episode[episode] = steps
 
-        if episode % 500 == 0:
+        if episode % 200 == 0:
             print(f'Episode: {episode}, Epsilon: {epsilon:.2f}, Reward: {total_reward}, Steps: {steps}')
 
     np.save('q_table.npy', q_table)
