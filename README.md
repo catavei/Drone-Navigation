@@ -1,5 +1,5 @@
 # Drone navigation using Gymnasium environment
-For more implementation details pelase consult the [EADME](README.md)
+For more implementation details pelase consult the [README](README.md)
 ## Overview
 `DroneNavigation` is a custom environment for OpenAI Gym that simulates a drone navigating from one point to another within a defined area. This environment is designed to help develop and compare reinforcement learning algorithms by providing a platform where a drone agent learns to reach a target destination efficiently while avoiding boundaries.
 
