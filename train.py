@@ -42,7 +42,7 @@ def train(env):
 
     np.save('q_table.npy', q_table)
 
-    plot_data_over_episodes(rewards_per_episode, 'Rewards Over Episodes', 'Average Reward')
-    plot_data_over_episodes(steps_per_episode, 'Steps Per Episode', 'Average Steps per Episode')
+    plot_data_over_episodes(rewards_per_episode, 'Rewards-Over-Episodes', 'Average Reward')
+    plot_data_over_episodes(steps_per_episode, 'Steps-Per-Episode', 'Average Steps per Episode')
     plot_q_table(q_table)
     return env
