@@ -17,7 +17,6 @@ class DroneNavigationEnv(gym.Env):
         self.observation_space = spaces.Tuple((spaces.Discrete(area_size[0]), spaces.Discrete(area_size[1])))
         self.target = tuple(np.random.randint(low=0, high=self.area_size, size=2))
         self.state = None
-        self.steps_beyond_done = None
         self.max_steps = max_steps
         self.current_step = 0
         self.reward = 0
@@ -33,13 +32,10 @@ class DroneNavigationEnv(gym.Env):
         self.state = tuple(np.random.randint(low=0, high=self.area_size, size=2))
         self.action_space = spaces.Discrete(4)
         self.current_step = 0
-        self.steps_beyond_done = None
         self.reward = 0
         return self.state, {}
 
     def step(self, action):
-        if self.steps_beyond_done is not None:
-            return self.state, -10, True, {}
 
         # Move mapping (action: (delta_y, delta_x))
         move_map = {0: (-1, 0), 1: (1, 0), 2: (0, -1), 3: (0, 1)}
